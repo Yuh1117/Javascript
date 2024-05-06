@@ -123,8 +123,87 @@
 
 //////////Fetch api
 
-fetch(`data.json`).then(response => {
-    return response.json() //promise
-}).then(data =>{
-    console.log(data)
-})
+// fetch(`data.json`).then(response => {
+//     return response.json() //promise
+// }).then(data =>{
+//     console.log(data)
+// })
+
+//////////Async, await
+
+// const getNewToDo = async () =>{
+//     let response = await fetch(`data.json`)
+//     let data = await response.json()
+//     return data;
+// }
+
+// getNewToDo().then(data =>{
+//     console.log('data: ', data)
+// })
+
+//////////Async, await throwing errors
+
+//cach 1
+
+// const getNewToDo = async () =>{
+//     let response = await fetch(`dataa.json`)
+//     if(response && response.status !== 200){
+//         throw new Error('Something wrong!!!' + response.status) //reject
+//     }
+//     let data = await response.json()
+//     return data; //resolve
+// }
+
+// getNewToDo().then(data =>{
+//     console.log('data: ', data)
+// }).catch(err =>{
+//     console.log('error ', err.message) //Something wrong!!! + response.status = message 
+// })
+
+//cach 2
+
+// const getNewToDo = async () =>{
+//     try {
+//         let response = await fetch(`dataa.json`)
+//         if(response && response.status !== 200){
+//             throw new Error('Something wrong!!! ' + response.status) //reject
+//         }
+//         let data = await response.json()
+//         return data; //resolve
+//     } catch (e) {
+//         console.log(e.message)
+//     }
+    
+// }
+
+// getNewToDo().then(data =>{
+//     if(data) console.log('data: ', data)
+// })
+
+//////////Destructuring Assignment
+
+///...
+
+// let arr1 = [1,2,3,4,5]
+// let state = {
+//     name : `huy`
+// }
+// let arr2 = {...state, age : 19}
+// console.log(arr2)
+
+/// {} []
+
+let arr1 = [1,2,3,4,5]
+let state = {
+    name : `huy`,
+    age : 19
+}
+
+let [a , b] = arr1
+console.log(a,b)
+
+// let name = state.name
+// let age = state.age
+
+let {name, age} = state
+console.log(name, age)
